@@ -10,18 +10,14 @@ function average(nums) {
 }
 
 function createSlug(str) {
-    return str.toLowerCase()
+    return str.toLowerCase().replaceAll(" ", "-")
 }
 
-function createSlugSnack4(str) {
-    const arr = str.split(" ")
-    return arr.join("-").toLowerCase()
-}
+
 
 module.exports = {
     getInitials,
     average,
     createSlug,
-    createSlugSnack4
 
 }

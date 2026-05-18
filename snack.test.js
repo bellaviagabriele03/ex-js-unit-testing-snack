@@ -1,4 +1,4 @@
-const { getInitials, average, createSlug, createSlugSnack4 } = require("./test-vari.js")
+const { getInitials, average, createSlug,  } = require("./test-vari.js")
 
 
 
@@ -26,8 +26,8 @@ test("La funzione getInitials restituisce le iniziali di un nome completo.", () 
 
 
 test("La funzione createSlug restituisce una stringa in lowercase.", () => {
-    expect(createSlug("Marco Rossi")).toBe("marco rossi")
-    expect(createSlug("Loris MAGICO")).toBe("loris magico")
+    expect(createSlug("Marco Rossi")).toBe("marco-rossi")
+    expect(createSlug("Loris MAGICO")).toBe("loris-magico")
 
 })
 
@@ -63,7 +63,7 @@ test("La funzione average calcola la media aritmetica di un array di numeri.", (
 // createSlug("Questo è un test") → "questo-e-un-test"
 
 test("La funzione createSlug sostituisce gli spazi con -.", () => {
-    expect(createSlugSnack4("Questo e un test")).toBe("questo-e-un-test")
+    expect(createSlug("Questo e un test")).toBe("questo-e-un-test")
 })
 
 
