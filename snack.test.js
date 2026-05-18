@@ -1,4 +1,4 @@
-const { getInitials, average } = require("./test-vari.js")
+const { getInitials, average, createSlug, createSlugSnack4 } = require("./test-vari.js")
 
 
 
@@ -15,8 +15,6 @@ const { getInitials, average } = require("./test-vari.js")
 test("La funzione getInitials restituisce le iniziali di un nome completo.", () => {
     expect(getInitials("Marco")).toBe("Ma")
 })
-
-
 
 
 
@@ -52,21 +50,7 @@ test("La funzione average calcola la media aritmetica di un array di numeri.", (
     expect(average(numbers2)).toBe(55)
 })
 
-//utilizzo before e after each per non far fallire lo snack 2 e per poter eseguire lo snack 4 senza cambiare la funzione createSlug per far fallire uno o l'altro test !
-let createSlug;
 
-beforeEach(()=>{
-   createSlug = (str) => {
-    return str.toLowerCase()
-   }
-})
-
-afterEach(()=> {
-     createSlug = (str) => {
-        const arr = str.split(" ")
-        return arr.join("-")
-    } 
-})
 
 // 🏆 Snack 4
 // Creare un test che verifichi la seguente descrizione:
@@ -77,3 +61,8 @@ afterEach(()=> {
 // 📌 Esempi:
 
 // createSlug("Questo è un test") → "questo-e-un-test"
+
+test("La funzione createSlug sostituisce gli spazi con -.", () => {
+    expect(createSlugSnack4("Questo e un test")).toBe("questo-e-un-test")
+})
+
