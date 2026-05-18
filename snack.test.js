@@ -1,4 +1,4 @@
-const { getInitials, createSlug } = require("./test-vari.js")
+const { getInitials, average } = require("./test-vari.js")
 
 
 
@@ -15,6 +15,9 @@ const { getInitials, createSlug } = require("./test-vari.js")
 test("La funzione getInitials restituisce le iniziali di un nome completo.", () => {
     expect(getInitials("Marco")).toBe("Ma")
 })
+
+
+
 
 
 
@@ -37,10 +40,7 @@ test("La funzione createSlug restituisce una stringa in lowercase.", () => {
 
 // 👉 "La funzione average calcola la media aritmetica di un array di numeri."
 
-function average(nums) {
-    const somma = nums.reduce((acc, n)=> acc + n, 0)
-    return somma / nums.length
-}
+
 
 
 test("La funzione average calcola la media aritmetica di un array di numeri.", () => {
@@ -51,3 +51,29 @@ test("La funzione average calcola la media aritmetica di un array di numeri.", (
     expect(average(numbers)).toBe(2.5)
     expect(average(numbers2)).toBe(55)
 })
+
+//utilizzo before e after each per non far fallire lo snack 2 e per poter eseguire lo snack 4 senza cambiare la funzione createSlug per far fallire uno o l'altro test !
+let createSlug;
+
+beforeEach(()=>{
+   createSlug = (str) => {
+    return str.toLowerCase()
+   }
+})
+
+afterEach(()=> {
+     createSlug = (str) => {
+        const arr = str.split(" ")
+        return arr.join("-")
+    } 
+})
+
+// 🏆 Snack 4
+// Creare un test che verifichi la seguente descrizione:
+
+// 👉 "La funzione createSlug sostituisce gli spazi con -."
+
+
+// 📌 Esempi:
+
+// createSlug("Questo è un test") → "questo-e-un-test"

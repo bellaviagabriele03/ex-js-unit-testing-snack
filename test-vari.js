@@ -7,7 +7,15 @@ function createSlug(str) {
 }
 
 
+function average(nums) {
+    const somma = nums.reduce((acc, n)=> acc + n, 0)
+    return somma / nums.length
+}
+
+
+
 module.exports = {
     getInitials,
     createSlug,
+    average,
 }
