@@ -1,4 +1,4 @@
-const { getInitials, average, createSlug,  } = require("./test-vari.js")
+const { getInitials, average, createSlug, findPostById } = require("./test-vari.js")
 
 
 
@@ -76,9 +76,9 @@ test("La funzione createSlug sostituisce gli spazi con -.", () => {
 function isPalindrome(str) {
     const reverseStr = str.split("").reverse().join("");
     return reverseStr === str;
-   
 
-   
+
+
 }
 
 
@@ -96,8 +96,18 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 
 // 👉 "La funzione createSlug lancia un errore se il titolo è vuoto o non valido."
 
+test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido.", () => {
+    expect(() => createSlug("")).toThrow()
+    expect(() => createSlug(null)).toThrow()
+
+})
 
 
+const posts = [
+    { id: 1, title: "Post Molto Bello", slug: "post-molto-bello" },
+    { id: 2, title: "Post brutto", slug: "post-brutto" },
+
+]
 
 
 
@@ -108,6 +118,11 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
 // Creare un test che verifichi le seguenti descrizioni:
 
 // 👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
+test("La funzione findPostById restituisce il post corretto dato l’array di post e l’id", () => {
+    expect(findPostById(posts, 2)).toEqual({ id: 2, title: "Post brutto", slug: "post-brutto" })
+    expect(() => findPostById("ciao", null)).toThrow("non posso eseguire se mi dai dati sbagliati, ask to Loris !")
+})
+
 
 
 // Creare uno o più test aggiuntivi che controllino che la struttura dati passati sia conforme (ogni post ha le proprietà id, title e slug, viene passato un id numerico).

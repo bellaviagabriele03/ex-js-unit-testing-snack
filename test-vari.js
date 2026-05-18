@@ -10,14 +10,24 @@ function average(nums) {
 }
 
 function createSlug(str) {
+    if (!str) {
+        throw new Error("stringa non valida !")
+    }
     return str.toLowerCase().replaceAll(" ", "-")
 }
 
+function findPostById(array, id) {
+    if (!array || !id) {
+        throw new Error("non posso eseguire se mi dai dati sbagliati, ask to Loris !")
+    }
 
+    return array.find(e => e.id === id)
+}
 
 module.exports = {
     getInitials,
     average,
     createSlug,
+    findPostById,
 
 }
