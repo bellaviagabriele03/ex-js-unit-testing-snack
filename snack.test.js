@@ -13,7 +13,7 @@ const { getInitials, average, createSlug, createSlugSnack4 } = require("./test-v
 
 
 test("La funzione getInitials restituisce le iniziali di un nome completo.", () => {
-    expect(getInitials("Marco")).toBe("Ma")
+    expect(getInitials("Marco Rossi")).toBe("M.R.")
 })
 
 
@@ -89,3 +89,26 @@ test("La funzione isPalindrome verifica se una stringa è un palindromo.", () =>
     expect(isPalindrome("ciao")).toBeFalsy()
     expect(isPalindrome("osso")).toBeTruthy()
 })
+
+
+// 🏆 Snack 6
+// Creare un test che verifichi la seguente descrizione:
+
+// 👉 "La funzione createSlug lancia un errore se il titolo è vuoto o non valido."
+
+
+
+
+
+
+
+// 🏆 Snack 7
+// Crea un array di oggetti posts, in cui ogni oggetto ha le proprietà id, title e slug.
+
+// Creare un test che verifichi le seguenti descrizioni:
+
+// 👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
+
+
+// Creare uno o più test aggiuntivi che controllino che la struttura dati passati sia conforme (ogni post ha le proprietà id, title e slug, viene passato un id numerico).
+

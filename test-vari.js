@@ -1,6 +1,7 @@
-function getInitials(name) {
-    const nameArray = name.split("");
-    return nameArray[0] + nameArray[1]
+function getInitials(nomeCompleto) {
+    const [nome, cognome] = nomeCompleto.split(" ");
+    return `${nome.charAt(0).toUpperCase()}.${cognome.charAt(0).toUpperCase()}.`
+
 }
 
 function average(nums) {
